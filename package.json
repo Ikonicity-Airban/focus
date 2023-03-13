@@ -5,10 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest app.js",
-    "dev": "nodemon app.js",
-    "watch": "nodemon --ext *",
-    "start": "node app.js"
+    "test": "jest index.js",
+    "dev": "nodemon index.js",
+    "watch": "nodemon --ext **/**",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
