@@ -15,11 +15,64 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Departmetal website</title>
+    <!-- Add the necessary CSS and JS files for Bootstrap and jQuery -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+      integrity="sha512-7YXn+6ZvQkH5kKgV4jQGm1L8uWlUz3y9xW3tHtJjT8a/7lNwGqO5eFhbqDh+IuUoDZ8bB7sRZpJ7A9Cf2hTww=="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-UO2mJvwDcYIkUbRHfKbQ4r8SbPAdGQxH6xnjTpdXvJ1zBpV4+NPbrxoNtp804+Srq57rKVcIFBhTUaJ7QIIdkQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"
+      integrity="sha512-sE/lx8qUqRiL6MfEPTiPz0SgN9+Rd/jPv0dXKdLcTEa5ZwLr/XbzCnHlJpC2LsDzBmWlMlKoMgjj4yFVvFrTfw=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"
+      integrity="sha512-8eJf2I8JW3z1ZvZz9m4bMnLcU5k5rZwWQrPrX7BqDjV8LdG+oG6NQa9R08SK4yfCJx6HvUgOzLpCZPqjxLlVog=="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Add the HTML code for the carousel -->
+    <link rel="stylesheet" href="/css/carousel.style.css" />
+    <link rel="stylesheet" href="/css/header.style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <base href="http://localhost:3000" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <title>
+      Departmetal website | {{title}}
+    </title>
   </head>
   <body>
-
     {{{body}}}
-
+    <script src="js/script.js"></script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+    </style>
+    <script src="js/tailwind.config.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"
+    ></script>
   </body>
 </html>

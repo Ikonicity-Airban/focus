@@ -1,0 +1,209 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- our project just needs Font Awesome Solid + Brands -->
+    <link
+      href="/assets/fontawesome-6.3.0/css/fontawesome.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/fontawesome-6.3.0/css/brands.css" rel="stylesheet" />
+    <link href="/assets/fontawesome-6.3.0/css/solid.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Add the necessary CSS and JS files for Bootstrap and jQuery -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+      integrity="sha512-7YXn+6ZvQkH5kKgV4jQGm1L8uWlUz3y9xW3tHtJjT8a/7lNwGqO5eFhbqDh+IuUoDZ8bB7sRZpJ7A9Cf2hTww=="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-UO2mJvwDcYIkUbRHfKbQ4r8SbPAdGQxH6xnjTpdXvJ1zBpV4+NPbrxoNtp804+Srq57rKVcIFBhTUaJ7QIIdkQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"
+      integrity="sha512-sE/lx8qUqRiL6MfEPTiPz0SgN9+Rd/jPv0dXKdLcTEa5ZwLr/XbzCnHlJpC2LsDzBmWlMlKoMgjj4yFVvFrTfw=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"
+      integrity="sha512-8eJf2I8JW3z1ZvZz9m4bMnLcU5k5rZwWQrPrX7BqDjV8LdG+oG6NQa9R08SK4yfCJx6HvUgOzLpCZPqjxLlVog=="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Add the HTML code for the carousel -->
+    <link rel="stylesheet" href="/css/carousel.style.css" />
+    <link rel="stylesheet" href="/css/header.style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <base href="http://localhost:3000" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <title>
+      {{title}}
+    </title>
+  </head>
+  <body>
+    {{! Header }}
+    <!-- drawer init and show -->
+    <header>
+     
+      <div class="text-center">
+        <button
+          class="text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          type="button"
+          data-drawer-target="drawer-navigation"
+          data-drawer-show="drawer-navigation"
+          aria-controls="drawer-navigation"
+        >
+          <icon class="fa fa-bars"></icon>
+        </button>
+      </div>
+
+     {{> avatar src="images/favicon.ico"}}
+
+      <!-- Dropdown menu -->
+      <div
+        id="userDropdown"
+        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow  dark:bg-gray-700 dark:divide-gray-600"
+      >
+        <div class="px-2 py-3 text-gray-900 dark:text-white">
+          
+        <div class="py-1 ">
+          <a
+            href="/profile"
+            class="block px-8 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+          >
+            Profile
+          </a>
+        </div>
+        <div class="py-1">
+          <a
+            href="/login"
+            class="block px-8 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+          >
+            Sign out
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- drawer component -->
+    <div
+      id="drawer-navigation"
+      class="fixed top-0 left-0 z-[1000] h-screen px-4 py-8 overflow-y-auto transition-transform -translate-x-full bg-white sm:w-80 max-w-[350px] w-full dark:bg-gray-800"
+      tabindex="-1"
+      aria-labelledby="drawer-navigation-label"
+    >
+    <div class="flex justify-between items-center">
+      <h3
+        id="drawer-navigation-label"
+        class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400"
+      >
+        Menu
+      </h3>
+      <button
+        type="button"
+        data-drawer-hide="drawer-navigation"
+        aria-controls="drawer-navigation"
+        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-4 flex items-center dark:hover:bg-gray-600 jusitfy-center dark:hover:text-white"
+      >
+      <i class="fa-solid fa-xmark " 
+          aria-hidden="true"></i>
+        
+        <span class="sr-only">
+          Close menu
+        </span>
+      </button>
+      </div>
+      <hr>
+      <div class="py-4 overflow-y-auto">
+        <ul class="space-y-2 font-medium">
+          {{#forEach drawerContent}}
+          {{#if dropDownList}}
+            {{> dropdown this}}
+            {{else}}
+            <li>
+              <a
+                href={{link}}
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                {{{icon}}}
+                <span class="flex-1 ml-3 whitespace-nowrap">
+                  {{name}}
+                </span>
+                
+                {{#if icon_badge}}
+                  <span
+                    class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"
+                  >
+                    3
+                  </span>
+                {{else}}
+                {{#if tag_batch}}
+                 <span
+                class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300"
+                Pro
+              </span>
+              >{{/if}}
+                {{/if}}
+              </a>
+            </li>
+            {{/if}}
+          {{/forEach}}
+
+
+          <hr>
+          <li>
+            <a
+              href="#"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              <svg
+                aria-hidden="true"
+                class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span class="flex-1 ml-3 whitespace-nowrap">
+                Sign Up
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    {{! Header Ends }}
+    {{{body}}}
+    <script src="js/script.js"></script>
+    <script src="js/tailwind.config.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<header>
+  <div class="hamburger">
+    <icon class="fa fa-bars"></icon>
+  </div>
+  <a class="logo" href="/">
+    <img src="images/title.png" alt="logo" />
+  </a>
+  <nav>
+    <ul>
+      <li>
+        <a href="/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="/courses">
+          Courses
+        </a>
+      </li>
+      <li>
+        <a href="/students">
+          Students
+        </a>
+      </li>
+      <li>
+        <a href="/instructors">
+          Instructors
+        </a>
+      </li>
+    </ul>
+  </nav>
+  {{#eq title "Login"}}
+    <div class="login">
+    </div>
+  {{else}}
+    <div class="login">
+      <a href="/login" class="button">
+        Login
+      </a>
+    </div>
+  {{/eq}}
+</header>
