@@ -10,6 +10,7 @@ import hbs_setup from "./hbs.setup.js";
 import passport from "./utils/passport.js";
 import session from "express-session";
 import morgan from "morgan";
+import cors from 'cors'
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -27,7 +28,13 @@ liveReloadServer.server.once("connection", () => {
 
 //? Middlewares
 app.use(morgan('dev'))
+app.use(cors())
 app.use(connectLiveReload());
+app.use(express.urlencoded({
+  extended: true,
+  limit: '1mb',
+  parameterLimit: 5000
+}))
 app.use(express.static(path.join(__dirname, '/assets')));
 // ? passport
 app.use(session({ secret: "manest man" }));
@@ -40,7 +47,6 @@ hbs_setup(app, __dirname)
 app.get("/", (req, res) => {
   res.render("home", {
     title: "Home Page",
-    universityName: "UNN",
     department: {
       name: "Computer Science"
     }
