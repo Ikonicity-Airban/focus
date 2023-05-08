@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { Login, RenderLogin } from "../controllers/auth.controller.js";
+import { isAuthenticated, Login, RenderLogin } from "../controllers/auth.controller.js";
+import passport from "../utils/passport.js";
 
 const router = Router()
 
@@ -7,8 +8,15 @@ router.get('/hello', (req, res) => {
     res.status(200).send('hello')
     res.end()
 })
-router.route('/login').post(Login).get(RenderLogin)
-router.route('/dashboard').get((req, res) => {
+router.route('/login')
+    .get(RenderLogin)
+    .post(passport.authenticate("local", {
+        successRedirect: "/",
+        failureRedirect: "/login",
+    })
+    );
+
+router.get('/dashboard', isAuthenticated, (req, res) => {
     res.render('dashboard', {
         title: "Dashboard",
         layout: "dashboard",
@@ -25,35 +33,25 @@ router.route('/dashboard').get((req, res) => {
             },
             {
                 name: "Profile",
-                link: "/dashboard",
-
-            },
-            {
-                name: "Payments",
-                link: "/dashboard",
                 dropDownList: [
                     {
-                        name: "All assignments",
+                        name: "View Profile",
                         link: "/assignments"
                     },
                     {
-                        name: "Submission",
-                        link: "/assignments/sumbit"
-                    },
-                    // {
-                    //     name: "All assignments",
-                    //     link: "/assignments"
-                    // },
-                    // {
-                    //     name: "Submission",
-                    //     link: "/assignments/sumbit"
-                    // },
+                        name: "Create Account",
+                        link: "/accounts"
+                    }
 
                 ]
             },
             {
+                name: "Payments",
+                link: "/dashboard",
+
+            },
+            {
                 name: "Assignments",
-                icon: `<icon class="fa fa-dashboard flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></icon>`,
                 link: "/dashboard",
                 dropDownList: [
                     {

@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
     <!-- our project just needs Font Awesome Solid + Brands -->
-    <link
+    {{!-- <link
       href="/assets/fontawesome-6.3.0/css/fontawesome.css"
       rel="stylesheet"
     />
@@ -14,7 +14,7 @@
       integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    />
+    /> --}}
     <!-- Add the necessary CSS and JS files for Bootstrap and jQuery -->
     <link
       rel="stylesheet"
@@ -61,79 +61,85 @@
     </title>
   </head>
   <body>
-    {{! Header }}
-    <!-- drawer init and show -->
-    <header>
-     
-      <div class="text-center">
-        <button
-          class="text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-          type="button"
-          data-drawer-target="drawer-navigation"
-          data-drawer-show="drawer-navigation"
-          aria-controls="drawer-navigation"
-        >
-          <icon class="fa fa-bars"></icon>
-        </button>
-      </div>
-
-     {{> avatar src="images/favicon.ico"}}
-
-      <!-- Dropdown menu -->
-      <div
-        id="userDropdown"
-        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow  dark:bg-gray-700 dark:divide-gray-600"
-      >
-        <div class="px-2 py-3 text-gray-900 dark:text-white">
-          
-        <div class="py-1 ">
-          <a
-            href="/profile"
-            class="block px-8 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-          >
-            Profile
-          </a>
-        </div>
-        <div class="py-1">
-          <a
-            href="/login"
-            class="block px-8 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-          >
-            Sign out
-          </a>
-        </div>
-      </div>
-    </header>
-
-    <!-- drawer component -->
-    <div
-      id="drawer-navigation"
-      class="fixed top-0 left-0 z-[1000] h-screen px-4 py-8 overflow-y-auto transition-transform -translate-x-full bg-white sm:w-80 max-w-[350px] w-full dark:bg-gray-800"
-      tabindex="-1"
-      aria-labelledby="drawer-navigation-label"
+    <nav
+      class="fixed top-0 z-50 w-full bg-indigo-500 border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700"
     >
-    <div class="flex justify-between items-center">
-      <h3
-        id="drawer-navigation-label"
-        class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400"
-      >
-        Menu
-      </h3>
-      <button
-        type="button"
-        data-drawer-hide="drawer-navigation"
-        aria-controls="drawer-navigation"
-        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-4 flex items-center dark:hover:bg-gray-600 jusitfy-center dark:hover:text-white"
-      >
-      <i class="fa-solid fa-xmark " 
-          aria-hidden="true"></i>
-        
-        <span class="sr-only">
-          Close menu
-        </span>
-      </button>
+      <div class="px-3 py-3 lg:px-5 lg:pl-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center justify-start">
+            <button
+              data-drawer-target="logo-sidebar"
+              data-drawer-toggle="logo-sidebar"
+              aria-controls="logo-sidebar"
+              data-drawer-target="logo-sidebar"
+              data-drawer-show="logo-sidebar"
+              aria-controls="logo-sidebar"
+              type="button"
+              class="inline-flex items-center p-2 text-sm text-white rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 hover:text-indigo-700" 
+            >
+              <span class="sr-only">
+                Open sidebar
+              </span>
+              <svg
+                class="w-6 h-6"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  fill-rule="evenodd"
+                  d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+                ></path>
+              </svg>
+            </button>
+            <a href="https://flowbite.com" class="flex ml-2 md:mr-24">
+              <img
+                src="images/favicon.ico"
+                class="h-8 mr-3"
+                alt="FlowBite Logo"
+              />
+              <span
+                class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-white"
+              >
+                DCS
+              </span>
+            </a>
+          </div>
+          {{> avatar src="https://media.istockphoto.com/id/174852570/photo/smiling-young-woman-portrait.jpg?s=612x612&w=0&k=20&c=BR15xmSRMI5KM0J5cEbuu9dBBDNZUlnYWjUpsGh1OIQ="}}
+          <div
+            id="userDropdown"
+            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow  dark:bg-gray-700 dark:divide-gray-600"
+          >
+            <div class="px-2 py-3 text-gray-900 dark:text-white">
+              <div class="py-1">
+                <a
+                  href="/profile"
+                  class="block px-8 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                >
+                  Profile
+                </a>
+              </div>
+              <div class="py-1">
+                <a
+                  href="/login"
+                  class="block px-8 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                >
+                  Sign out
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <hr>
+    </nav>
+
+    <aside
+      id="logo-sidebar"
+      class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+      aria-label="Sidebar"
+    >
       <div class="py-4 overflow-y-auto">
         <ul class="space-y-2 font-medium">
           {{#forEach drawerContent}}
@@ -176,19 +182,7 @@
               href="#"
               class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
-              <svg
-                aria-hidden="true"
-                class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
+             
               <span class="flex-1 ml-3 whitespace-nowrap">
                 Sign Up
               </span>
@@ -196,10 +190,12 @@
           </li>
         </ul>
       </div>
-    </div>
+    </aside>
 
-    {{! Header Ends }}
+    <div class="p-4 sm:ml-64">
     {{{body}}}
+      </div>
+    </div>
     <script src="js/script.js"></script>
     <script src="js/tailwind.config.js"></script>
     <script

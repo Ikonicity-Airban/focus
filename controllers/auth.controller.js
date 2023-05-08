@@ -6,6 +6,15 @@ export function Login(req, res) {
 export function CreateAccount(req, res) {
     res.json({ msg: "account created" })
 }
+// Handle login requests
+
+// Protect dashboard route with authentication middleware
+export function isAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect("/login");
+}
 
 export function RenderLogin(req, res) {
     res.render('login', {
@@ -13,17 +22,18 @@ export function RenderLogin(req, res) {
         inputs: [
             {
                 label: "Email address",
-                type: 'text',
-                icon: `<icon class="fa fa-user"></icon>`
+                type: 'email',
+                icon: 'user'
                 ,
                 placeholder: `John Doe`,
             },
             {
                 label: "Password",
-                icon: `<icon class="fa fa-user "></icon>`,
+                icon: 'lock',
                 type: "password",
                 placeholder: "1234"
             }]
 
     })
 }
+

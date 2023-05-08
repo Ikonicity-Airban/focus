@@ -1,5 +1,4 @@
-import express, { Router } from "express";
-import { create } from "express-handlebars";
+import express from "express";
 import livereload from "livereload";
 import connectLiveReload from "connect-livereload";
 import router from "./routes/index.js";
@@ -8,6 +7,9 @@ import path from 'path'
 import { fileURLToPath } from 'url';
 import connect from "./utils/db.connect.js";
 import hbs_setup from "./hbs.setup.js";
+import passport from "./utils/passport.js";
+import session from "express-session";
+import morgan from "morgan";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -24,9 +26,13 @@ liveReloadServer.server.once("connection", () => {
 });
 
 //? Middlewares
+app.use(morgan('dev'))
 app.use(connectLiveReload());
 app.use(express.static(path.join(__dirname, '/assets')));
-
+// ? passport
+app.use(session({ secret: "manest man" }));
+app.use(passport.initialize());
+app.use(passport.session());
 //? HBS setup
 hbs_setup(app, __dirname)
 
