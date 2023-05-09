@@ -69,7 +69,7 @@ app.use(router)
 
 async function serve() {
 
-  await connect(process.env.MONGO_URI)
+  // await connect(process.env.MONGO_URI)
   //?server - up
   app.listen(3000, () =>
     console.log("app started on port http://localhost:3000/ ...")
