@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "name": "focus",
+  "name": "department-portal",
   "builds": [
-    { "src": "server.js", "use": "@now/node" }
+    { "src": "server.js", "use": "@vercel/node" }
   ]
 }
