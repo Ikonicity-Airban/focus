@@ -6,7 +6,7 @@ import "dotenv/config";
 import path from 'path'
 import { fileURLToPath } from 'url';
 import connect from "./utils/db.connect.js";
-import hbs_setup from "./hbs.setup.js";
+import hbs_setup from "./utils/hbs.setup.js";
 import passport from "./utils/passport.js";
 import session from "express-session";
 import morgan from "morgan";
@@ -37,7 +37,19 @@ app.use(express.urlencoded({
 }))
 app.use(express.static(path.join(__dirname, '/assets')));
 // ? passport
-app.use(session({ secret: "manest man" }));
+app.use(
+  session({
+    secret: "this_is_a_secret",
+    // store: pgSessionStorage,
+    resave: true,
+    saveUnitialized: true,
+    rolling: true, // forces resetting of max age
+    cookie: {
+      maxAge: 360000,
+      secure: false // this should be true only when you don't want to show it for security reason
+    }
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 //? HBS setup

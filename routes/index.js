@@ -16,7 +16,7 @@ router.route('/login')
     })
     );
 
-router.get('/dashboard', isAuthenticated, (req, res) => {
+router.get('/dashboard', /* isAuthenticated, */(req, res) => {
     res.render('dashboard', {
         title: "Dashboard",
         layout: "dashboard",

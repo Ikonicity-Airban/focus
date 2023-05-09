@@ -1,46 +1,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <base href="http://localhost:3000" />
     <!-- our project just needs Font Awesome Solid + Brands -->
-    {{!-- <link
-      href="/assets/fontawesome-6.3.0/css/fontawesome.css"
-      rel="stylesheet"
-    />
-    <link href="/assets/fontawesome-6.3.0/css/brands.css" rel="stylesheet" />
-    <link href="/assets/fontawesome-6.3.0/css/solid.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    /> --}}
-    <!-- Add the necessary CSS and JS files for Bootstrap and jQuery -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
-      integrity="sha512-7YXn+6ZvQkH5kKgV4jQGm1L8uWlUz3y9xW3tHtJjT8a/7lNwGqO5eFhbqDh+IuUoDZ8bB7sRZpJ7A9Cf2hTww=="
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-      integrity="sha512-UO2mJvwDcYIkUbRHfKbQ4r8SbPAdGQxH6xnjTpdXvJ1zBpV4+NPbrxoNtp804+Srq57rKVcIFBhTUaJ7QIIdkQ=="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"
-      integrity="sha512-sE/lx8qUqRiL6MfEPTiPz0SgN9+Rd/jPv0dXKdLcTEa5ZwLr/XbzCnHlJpC2LsDzBmWlMlKoMgjj4yFVvFrTfw=="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"
-      integrity="sha512-8eJf2I8JW3z1ZvZz9m4bMnLcU5k5rZwWQrPrX7BqDjV8LdG+oG6NQa9R08SK4yfCJx6HvUgOzLpCZPqjxLlVog=="
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- Add the HTML code for the carousel -->
-    <link rel="stylesheet" href="/css/carousel.style.css" />
-    <link rel="stylesheet" href="/css/header.style.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
@@ -49,8 +11,11 @@
     <script
       src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"
     ></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <base href="http://localhost:3000" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="/css/carousel.style.css" />
+    <link rel="stylesheet" href="/css/header.style.css" />
+    <link rel="stylesheet" href="/css/compiled.tailwind.css">
     <link rel="stylesheet" href="/css/styles.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"
@@ -197,7 +162,7 @@
       </div>
     </div>
     <script src="js/script.js"></script>
-    <script src="js/tailwind.config.js"></script>
+    {{!-- <script src="js/tailwind.config.js"></script> --}}
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"
     ></script>
