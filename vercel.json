@@ -1,7 +1,12 @@
 {
   "version": 2,
-  "name": "department-portal",
   "builds": [
-    { "src": "server.js", "use": "@vercel/node" }
+    { "src": "*.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)"
+      , "dest": "/"
+    }
   ]
 }
