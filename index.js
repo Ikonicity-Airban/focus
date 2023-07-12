@@ -40,7 +40,7 @@ const cors = require("cors");
     res.status(200).send("<h2>Hello, World!!!</h2>");
   });
 
-  app.use("/api/v1", require("./src/routes/index"));
+  app.use("/api/v1", require("./src/routes/routes"));
   app.use(four_oh_four);
   app.use(errorHandlerMiddleware);
 

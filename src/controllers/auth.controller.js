@@ -19,8 +19,9 @@ async function Login(req, res) {
   const user = await User.findOne({ email });
   // console.log(user);
   if (!user) return res.sendStatus(404);
-  else if (!user.verifyPassword(password))
-    return res.sendStatus(StatusCodes.BAD_REQUEST);
+
+  if (!(await user.verifyPassword(password)))
+    throw new BadRequestError("Invalid Email or password");
 
   const tokenUser = createTokenUser(user);
   const { accessToken, refreshToken } = signTokens(res, tokenUser);
